@@ -9,14 +9,15 @@ def main():
     doctor_portal_instance = DoctorPortal()
 
     while True:
-        print("\n--- Medical App Main Menu ---")
-        print("1. Register Patient")
-        print("2. Register Doctor")
-        print("3. Book Appointment")
-        print("4. View All Appointments")
-        print("5. Delete Appointment")
-        print("6. Exit")
-
+        print (f"""
+        --- Medical App Main Menu ---
+        1. Register Patient
+        2. Register Doctor
+        3. Book Appointment
+        4. View All Appointments
+        5. Delete Appointment
+        6. Exit
+        """)
 
         choice = input("Enter your choice (1-5): ")
 
@@ -29,7 +30,7 @@ def main():
 
             try:
                 patient = patient_portal_instance.register_patient(name, dob, address, phone)
-                print(f"Doctor {name} successfully registered with ID: {patient.get_id()}")
+                print(f"Patient {name} successfully registered with ID: {patient.get_id()}")
             except ValueError as e:
                 print(f"Error: {e}")
 
@@ -89,7 +90,6 @@ def main():
             if not appointment_list:
                 print("No appointments to delete.")
             else:
-                # Display the list of appointments
                 for i, appointment in enumerate(appointment_list, start=1):
                     print(f"{i}. {appointment}")
 
